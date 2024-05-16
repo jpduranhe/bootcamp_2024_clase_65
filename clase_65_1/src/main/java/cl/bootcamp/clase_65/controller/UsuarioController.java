@@ -3,6 +3,7 @@ package cl.bootcamp.clase_65.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,6 +37,17 @@ public class UsuarioController {
 		}
 		
 		return new ModelAndView(view);
+	}
+	@GetMapping("/muestra/{email}")
+	public ModelAndView muestrausuarioGet(@PathVariable String email) {		
+		
+		ModelAndView modelAndView=new ModelAndView("muestra-usuario.jsp");
+		
+		Usuario usuario=usuarioService.getByEmail(email);
+		
+		modelAndView.addObject("usuario", usuario);
+		
+		return modelAndView;		
 	}
 
 }

@@ -5,19 +5,23 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
+import cl.bootcamp.clase_65.dao.UsuarioDao;
 import cl.bootcamp.clase_65.model.Usuario;
 import cl.bootcamp.clase_65.service.impl.UsuarioServiceImpl;
 
-//@SpringBootTest
+@SpringBootTest
 public class UsuarioServiceTest {
 
-	//@Autowired
+	@Autowired
 	UsuarioService usuarioService;
+	@MockBean
+	UsuarioDao usuario;
 	
 	@BeforeEach
 	void setup() {
-		usuarioService=new UsuarioServiceImpl();
+		//usuarioService=new UsuarioServiceImpl();
 	}
 	
 	@Test
